@@ -1,5 +1,7 @@
 # Node Express validation
 
+[![BuildStatus](https://travis-ci.org/stevenalexander/node-express-validation.svg?branch=master)](https://travis-ci.org/stevenalexander/node-express-validation?branch=master)
+
 Simple node app using middleware to apply validation to requests independently of route logic.
 
 ## Run
