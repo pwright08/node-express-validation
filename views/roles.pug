@@ -4,3 +4,14 @@ block content
   h1 Add Role
   a(href='/') < index
   p Page for adding a new Role
+
+  div
+    form(action='/roles', method='post')
+      div
+        label(for='name') Name
+          input(name='name')
+      div
+        label(for='type') Type
+          input(name='type')
+      div
+        input(type='submit', value='add')

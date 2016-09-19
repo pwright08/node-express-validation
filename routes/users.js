@@ -8,4 +8,8 @@ module.exports = function (app) {
   route.get('/', function (req, res) {
     res.render('users', { title: 'Users' })
   })
+
+  route.post('/', function (req, res) {
+    res.render('users', { msg: 'User added!' })
+  })
 }

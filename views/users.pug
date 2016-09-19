@@ -4,3 +4,17 @@ block content
   h1 Add User
   a(href='/') < index
   p Page for adding a new User
+
+  div
+    form(action='/users', method='post')
+      div
+        label(for='name') Name
+          input(name='name')
+      div
+        label(for='age') Age
+          input(name='age')
+      div
+        label(for='email') Email
+          input(name='email')
+      div
+        input(type='submit', value='add')

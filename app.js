@@ -4,6 +4,8 @@ var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
+var requestValidator = require('./validators/request-validator')
+
 var routeIndex = require('./routes/index')
 var routeUsers = require('./routes/users')
 var routeRoles = require('./routes/roles')
@@ -19,6 +21,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Apply validators to POST requests
+app.use(function (req, res, next) {
+  requestValidator(req)
+  next()
+})
 
 // Routes attach themselves to app for IoC
 routeIndex(app)
