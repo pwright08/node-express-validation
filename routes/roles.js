@@ -3,9 +3,9 @@ var express = require('express')
 module.exports = function (app) {
   var route = express.Router()
 
-  app.use('/', route)
+  app.use('/roles', route)
 
   route.get('/', function (req, res) {
-    res.render('index', { title: 'Index' })
+    res.render('roles', { title: 'Roles' })
   })
 }

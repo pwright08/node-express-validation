@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Node Express validation
+  p Simple node app using middleware to apply validation to requests independently of route logic
+  p Each route below uses a specific validator module to validate POST requests which is called via middleware rather than explicitly in the route logic. This means the route does not need to be aware of the validator module and can be tested independently of it.
+  ul
+    li
+      a(href='/users') Users
+    li
+      a(href='/roles') Roles
