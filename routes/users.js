@@ -11,7 +11,7 @@ module.exports = function (app) {
 
   route.post('/', function (req, res) {
     if (req.validationErrors) {
-      res.render('users', { title: 'Users', data: req.body, errors: req.validationErrors })
+      res.status(400).render('users', { title: 'Users', data: req.body, errors: req.validationErrors })
     } else {
       res.render('users', { title: 'Users', data: {}, msg: 'User added!' })
     }

@@ -4,7 +4,6 @@ var FieldValidator = require('./field-validator')
 class BaseValidatorName {
   validate (data) {
     var errors = []
-
     var name = data['name']
 
     FieldValidator(name, 'name', 'Name', errors)

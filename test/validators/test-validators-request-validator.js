@@ -29,6 +29,8 @@ describe('request-validator', function () {
       done()
     })
 
+    // Requires a test per mapping
+
     it('to result of validatorUsers for /users', function (done) {
       var request = { url: '/users', method: 'POST' }
       requestValidator(request)
