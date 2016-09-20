@@ -5,16 +5,25 @@ block content
   a(href='/') < index
   p Page for adding a new User
 
+  if msg
+    h2= msg
+
+  if errors
+    div(class='errors')
+      ul
+        each error in errors
+          li= error.message
+
   div
     form(action='/users', method='post')
       div
         label(for='name') Name
-          input(name='name')
+          input(name='name', value=data['name'])
       div
         label(for='age') Age
-          input(name='age')
+          input(name='age', value=data['age'])
       div
         label(for='email') Email
-          input(name='email')
+          input(name='email', value=data['email'])
       div
         input(type='submit', value='add')

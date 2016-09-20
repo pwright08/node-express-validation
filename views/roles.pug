@@ -5,13 +5,22 @@ block content
   a(href='/') < index
   p Page for adding a new Role
 
+  if msg
+    h2= msg
+
+  if errors
+    div(class='errors')
+      ul
+        each error in errors
+          li= error.message
+
   div
     form(action='/roles', method='post')
       div
         label(for='name') Name
-          input(name='name')
+          input(name='name', value=data['name'])
       div
         label(for='type') Type
-          input(name='type')
+          input(name='type', value=data['type'])
       div
         input(type='submit', value='add')

@@ -6,10 +6,14 @@ module.exports = function (app) {
   app.use('/roles', route)
 
   route.get('/', function (req, res) {
-    res.render('roles', { title: 'Roles' })
+    res.render('roles', { title: 'Roles', data: {} })
   })
 
   route.post('/', function (req, res) {
-    res.render('roles', { msg: 'Role added!' })
+    if (req.validationErrors) {
+      res.render('roles', { title: 'Roles', data: req.body, errors: req.validationErrors })
+    } else {
+      res.render('roles', { title: 'Roles', data: {}, msg: 'Role added!' })
+    }
   })
 }

@@ -14,5 +14,5 @@ module.exports = function (request) {
     validator = validatorRoles
   }
 
-  request.validationErrors = validator ? validator(request) : null
+  request.validationErrors = validator ? validator(request.body) : false
 }
