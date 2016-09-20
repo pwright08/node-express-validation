@@ -16,6 +16,7 @@ npm start # runs on http://localhost:3000
 
 Modules are structured to use Express middleware to apply validation to specific POST actions independently of the route logic. This means the route classes don't need to know anything about the specific validator module, just check the `request.validationErrors` property.
 
+I've added an additional route `users-explicit-validator` which instead of using the middleware it uses the validator explicitly in the route logic as a comparison.
 
 ## Links
 

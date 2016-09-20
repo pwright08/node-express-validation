@@ -8,6 +8,7 @@ var requestValidator = require('./validators/request-validator')
 
 var routeIndex = require('./routes/index')
 var routeUsers = require('./routes/users')
+var routeUsersExplicitValidator = require('./routes/users-explicit-validator')
 var routeRoles = require('./routes/roles')
 
 var app = express()
@@ -31,6 +32,7 @@ app.use(function (req, res, next) {
 // Routes attach themselves to app for IoC
 routeIndex(app)
 routeUsers(app)
+routeUsersExplicitValidator(app)
 routeRoles(app)
 
 // catch 404 and forward to error handler
