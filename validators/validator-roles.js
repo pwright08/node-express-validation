@@ -1,20 +1,21 @@
+var BaseValidatorName = require('./base-validator-name')
 var FieldValidator = require('./field-validator')
 
-module.exports = function (data) {
-  console.log('validating using validator-roles!')
+class ValidatorRoles extends BaseValidatorName {
+  validate (data) {
+    var errors = super.validate(data)
 
-  var errors = []
+    var type = data['type']
 
-  var name = data['name']
-  var type = data['type']
+    FieldValidator(type, 'type', 'Type', errors)
+      .isRequired()
+      .isAlpha()
 
-  FieldValidator(name, 'name', 'Name', errors)
-    .isRequired()
-    .isAlpha()
-
-  FieldValidator(type, 'type', 'Type', errors)
-    .isRequired()
-    .isAlpha()
-
-  return errors.length > 0 ? errors : false
+    return errors.length > 0 ? errors : false
+  }
 }
+
+exports.default = function (data) {
+  return new ValidatorRoles().validate(data)
+}
+module.exports = exports['default']
